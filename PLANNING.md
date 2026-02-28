@@ -35,4 +35,4 @@ Package the Adan persona and autonomous engineering framework into a portable, f
 ## Immediate Next Steps
 - Execute first 5-case field-testing batch using `docs/field-testing-protocol.md`.
 - Capture learnings in `.learnings/*` and tune templates.
-- Prepare v0.4 proposal based on field evidence.
+- Apply v0.4 governance hard-blockers and promotion templates.

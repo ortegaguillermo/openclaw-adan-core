@@ -106,8 +106,8 @@ See `FEATURES.md`.
 - `templates/onboarding.checklist.md` — prerequisite checklist
 - `templates/onboarding.presets/*.yaml` — provider-specific onboarding starters
 - `templates/supplementary.*.md` — additive overlay templates
-- `templates/learnings/*` — weekly refinement logs
-- `docs/*` — quickstart, roadmap, meta-skill spec, quality/rubric
+- `templates/learnings/*` — weekly refinement and governance logs
+- `docs/*` — quickstart, roadmap, meta-skill spec, quality/rubric/governance
 
 ---
 
@@ -119,6 +119,7 @@ See `FEATURES.md`.
 - `docs/v0.3-execution-board.md`
 - `docs/skill-quality-rubric.md`
 - `docs/field-testing-protocol.md`
+- `docs/v0.4-governance-proposal.md`
 - `ONBOARDING.md`
 
 ## Optional Modules

@@ -54,6 +54,7 @@ Example:
 
 - `weekly_refinery` (default: `false`)
   - If true: enables weekly learning audit/promotion routines.
+  - Governance references: `docs/v0.4-governance-proposal.md`, `templates/learnings/GOVERNANCE_LOG.md`.
   - Risk: promoting weak patterns without strong governance.
 
 ## Release Policy

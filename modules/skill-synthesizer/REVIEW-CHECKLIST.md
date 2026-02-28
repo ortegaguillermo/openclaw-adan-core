@@ -23,7 +23,14 @@ Reference: `docs/skill-quality-rubric.md`
 - Total score: ____ / 100
 - Critical failures present: yes / no
 
+## Governance Hard-Blockers (must be none)
+- [ ] Frontmatter invalid/missing
+- [ ] Trigger description ambiguous/overly broad
+- [ ] External actions not explicitly approval-gated
+- [ ] Feature-flag compatibility missing
+- [ ] Rollback guidance missing
+
 ## Adoption Decision
-- [ ] Approved for trial (>=75, no critical failures)
-- [ ] Approved for production (>=85, no critical failures)
+- [ ] Approved for trial (>=75, no critical failures, no hard-blockers)
+- [ ] Approved for production (>=85, no critical failures, no hard-blockers)
 - [ ] Rejected (with reasons)
