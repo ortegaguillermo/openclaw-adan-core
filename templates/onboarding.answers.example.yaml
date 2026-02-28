@@ -1,0 +1,52 @@
+version: 1
+
+identity:
+  user_name: ""
+  preferred_language: "English"
+  response_style: "layered"
+  decision_cadence: "daily"
+
+goals:
+  north_star: ""
+  outcomes_30d:
+    - ""
+    - ""
+    - ""
+  current_focus: ""
+  success_metrics:
+    - ""
+    - ""
+    - ""
+
+work:
+  timezone: "UTC"
+  active_hours: "09:00-18:00"
+  priorities:
+    - ""
+    - ""
+    - ""
+  escalate_immediately_for: ""
+  autonomous_actions_allowed_for: ""
+  roadmap_update_mode: ""
+  pr_ci_notification_mode: ""
+
+platform:
+  vcs_provider: "github" # github|gitlab|bitbucket|azure-devops|other
+  vcs_ready: false         # true if auth + repos already configured
+  repo_workspace_root: "~/Projects" # common root where repos are cloned
+  repositories:
+    - "owner/repo-a"
+    - "owner/repo-b"
+
+subscriptions:
+  openclaw_installed: true
+  github_cli_installed: false
+  github_cli_authenticated: false
+  antigravity_used: false
+  antigravity_accounts_count: 0
+  copilot_used: false
+  openai_used: false
+  local_model_used: false
+
+notes:
+  non_negotiables: ""

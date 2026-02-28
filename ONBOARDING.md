@@ -1,0 +1,40 @@
+# Onboarding (Platform-Agnostic)
+
+Use this process on any OS or environment.
+
+## 1) Fill onboarding answers
+
+Copy and edit:
+
+`templates/onboarding.answers.example.yaml` → `onboarding.answers.yaml`
+
+This onboarding flow is file-based and platform-agnostic (no required scripts).
+
+## 2) Ask the agent to apply answers
+
+Prompt example:
+
+> Read `onboarding.answers.yaml` and generate/update `GOALS.md`, `USER_CUSTOM.md`, and `WORKFLOW_CUSTOM.md` as additive overlays. Do not replace `SOUL.md` or `WORKFLOW_AUTO.md`.
+
+## 3) Validate prerequisites
+
+Before enabling autonomous features, confirm:
+
+- OpenClaw installed and gateway healthy
+- VCS provider access configured (GitHub/GitLab/Bitbucket/etc.)
+- A common repository root exists (e.g., `~/Projects`)
+- Required subscriptions/providers are configured (if used)
+
+## 4) Recommended repo root policy
+
+Define one shared clone root in `onboarding.answers.yaml`:
+
+- `platform.repo_workspace_root: "~/Projects"`
+
+Store all working repositories under this root for consistent automation.
+
+## 5) Safety defaults
+
+- Keep risky feature flags off initially.
+- Start in report-only mode for 24–48 hours.
+- Enable autonomous write actions incrementally.
