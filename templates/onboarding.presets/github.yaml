@@ -1,0 +1,18 @@
+version: 1
+provider: github
+
+platform:
+  vcs_provider: github
+  vcs_ready: false
+  repositories: []
+
+subscriptions:
+  github_cli_installed: false
+  github_cli_authenticated: false
+  copilot_used: false
+
+tools_inventory:
+  gh_cli_available: false
+  copilot_available: false
+  gemini_cli_available: false
+  opencode_available: false

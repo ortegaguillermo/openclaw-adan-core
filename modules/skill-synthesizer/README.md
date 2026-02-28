@@ -11,8 +11,11 @@ Optional Adan Core module for generating new skill scaffolds safely.
 Use `templates/skill-request.example.yaml` as your request contract.
 
 ## Output Contract
+See `OUTPUT-CONTRACT.md`.
+
 Generate a skill folder with at least:
 - `SKILL.md`
+- `REVIEW-NOTES.md`
 - optional `templates/`, `references/`, `assets/`
 
 ## Apply Flow (platform-agnostic)
