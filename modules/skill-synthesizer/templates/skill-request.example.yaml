@@ -1,0 +1,27 @@
+version: 1
+
+skill:
+  name: "example-skill"
+  description: "What the skill does and when to use it"
+  owner: ""
+
+triggers:
+  - "user asks to ..."
+  - "agent needs to ..."
+
+capabilities:
+  - ""
+  - ""
+
+resources:
+  include_templates: true
+  include_references: true
+  include_assets: false
+
+risk:
+  level: "low" # low|medium|high
+  external_actions_allowed: false
+  auto_publish_allowed: false
+
+output:
+  target_folder: "./skills/example-skill"

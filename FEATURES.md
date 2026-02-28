@@ -49,6 +49,7 @@ Example:
 
 - `meta_skill_synthesizer` (default: `false`)
   - If true: enables optional meta-skill scaffolding workflows.
+  - Module path: `modules/skill-synthesizer/`.
   - Risk: low-quality generated scaffolds without review.
 
 - `weekly_refinery` (default: `false`)

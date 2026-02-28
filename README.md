@@ -115,7 +115,15 @@ See `FEATURES.md`.
 - `docs/event-quickstart.md`
 - `docs/implementation-roadmap.md`
 - `docs/meta-skill-spec.md`
+- `docs/v0.3-execution-board.md`
 - `ONBOARDING.md`
+
+## Optional Modules
+
+- `modules/skill-synthesizer/` — feature-flagged MVP for safe skill scaffolding.
+  - request contract: `templates/skill-request.example.yaml`
+  - scaffold template: `templates/SKILL.template.md`
+  - review gate: `REVIEW-CHECKLIST.md`
 
 ## License
 

@@ -30,3 +30,4 @@ Adan Core defines behavior, not only style. It combines:
 - `templates/onboarding.checklist.md`
 - `templates/supplementary.*.md`
 - `templates/learnings/*`
+- `modules/skill-synthesizer/*` (optional, feature-flagged)

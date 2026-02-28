@@ -20,10 +20,11 @@ Package the Adan persona and autonomous engineering framework into a portable, f
 - [x] Manual/non-rolling upgrade policy
 - [x] Prerequisite matrix (VCS + subscriptions)
 
-### Phase 4: Meta-Agent Evolution (next)
-- [ ] `skill-synthesizer` MVP scaffold
-- [ ] Weekly refinement loop templates and governance checks
-- [ ] Promotion workflow (`pending -> validated -> promoted`)
+### Phase 4: Meta-Agent Evolution (in progress)
+- [x] `skill-synthesizer` MVP scaffold
+- [x] Weekly refinement loop templates and governance checks
+- [x] Promotion workflow (`pending -> validated -> promoted`)
+- [ ] Field testing and refinement of module outputs
 
 ## Open Decisions
 1. How much meta-skill automation to allow in v1 without increasing risk?
