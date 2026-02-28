@@ -6,8 +6,15 @@ skill:
   owner: ""
 
 triggers:
-  - "user asks to ..."
-  - "agent needs to ..."
+  - "narrow trigger: user asks to generate release notes from commits"
+  - "narrow trigger: agent needs to scaffold a skill from a structured request"
+
+trigger_constraints:
+  must_include_narrow_example: true
+  avoid_broad_phrases:
+    - "anything related to"
+    - "all tasks about"
+    - "general requests"
 
 capabilities:
   - ""
