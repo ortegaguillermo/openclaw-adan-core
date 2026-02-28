@@ -59,6 +59,7 @@ If missing, create:
 ### 4) Run onboarding via files
 Follow `ONBOARDING.md` with:
 - `templates/onboarding.answers.example.yaml`
+- `templates/onboarding.auth-bootstrap.example.yaml`
 - `templates/supplementary.*.md`
 
 ### 5) Merge model-role baseline (optional)

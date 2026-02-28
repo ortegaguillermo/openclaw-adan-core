@@ -20,12 +20,14 @@ Package the Adan persona and autonomous engineering framework into a portable, f
 - [x] Manual/non-rolling upgrade policy
 - [x] Prerequisite matrix (VCS + subscriptions)
 
-### Phase 4: Meta-Agent Evolution (completed for v0.3 scope)
+### Phase 4: Meta-Agent Evolution (completed for v0.4 scope)
 - [x] `skill-synthesizer` MVP scaffold
 - [x] Weekly refinement loop templates and governance checks
 - [x] Promotion workflow (`pending -> validated -> promoted`)
 - [x] Field testing protocol and output refinement contract
 - [x] Provider-specific onboarding presets
+- [x] Governance hard-blockers and promotion templates
+- [x] Provider bootstrap readiness hints
 
 ## Open Decisions
 1. How much meta-skill automation to allow in v1.1 without increasing risk?
@@ -37,3 +39,4 @@ Package the Adan persona and autonomous engineering framework into a portable, f
 - Capture learnings in `.learnings/*` and tune templates.
 - Apply v0.4 governance hard-blockers and promotion templates.
 - Use provider bootstrap hints to track readiness across environments.
+- Prepare v0.5 proposal based on field evidence.
