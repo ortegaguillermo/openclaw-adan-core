@@ -31,6 +31,21 @@ Before enabling autonomous features, confirm:
 - Required subscriptions/providers are configured (if used)
 - Available tools are explicitly inventoried in onboarding answers (Gemini, Copilot, OpenCode, `gh`, local runtimes)
 
+## 3.5) Provider bootstrap hints
+
+Optionally copy:
+
+`templates/onboarding.auth-bootstrap.example.yaml` -> `onboarding.auth-bootstrap.yaml`
+
+Use it to record provider state (`available`, `configured`, `validated`) for:
+- GitHub Copilot
+- Google Antigravity
+- OpenAI Codex
+- Local runtime
+- VCS provider
+
+Reference: `docs/provider-bootstrap-hints.md`
+
 ## 4) Recommended repo root policy
 
 Define one shared clone root in `onboarding.answers.yaml`:

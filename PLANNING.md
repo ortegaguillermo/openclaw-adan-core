@@ -36,3 +36,4 @@ Package the Adan persona and autonomous engineering framework into a portable, f
 - Execute first 5-case field-testing batch using `docs/field-testing-protocol.md`.
 - Capture learnings in `.learnings/*` and tune templates.
 - Apply v0.4 governance hard-blockers and promotion templates.
+- Use provider bootstrap hints to track readiness across environments.

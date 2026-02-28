@@ -1,0 +1,47 @@
+version: 1
+
+environment:
+  label: "local"
+  owner: ""
+  validated_at: ""
+
+providers:
+  github_copilot:
+    available: false
+    configured: false
+    validated: false
+    notes: ""
+
+  google_antigravity:
+    available: false
+    configured: false
+    validated: false
+    accounts_count: 0
+    notes: ""
+
+  openai_codex:
+    available: false
+    configured: false
+    validated: false
+    notes: ""
+
+  local_runtime:
+    available: false
+    configured: false
+    validated: false
+    runtime_type: "" # ollama|lmstudio|vllm|other
+    notes: ""
+
+vcs:
+  provider: "github" # github|gitlab|bitbucket|azure-devops|other
+  available: false
+  configured: false
+  validated: false
+  notes: ""
+
+limitations:
+  - ""
+
+fallback_policy:
+  if_provider_unavailable: "use configured fallback model/provider"
+  if_validation_unknown: "report-only mode"
