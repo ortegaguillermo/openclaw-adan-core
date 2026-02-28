@@ -120,6 +120,7 @@ See `FEATURES.md`.
 - `docs/skill-quality-rubric.md`
 - `docs/field-testing-protocol.md`
 - `docs/v0.4-governance-proposal.md`
+- `docs/provider-bootstrap-hints.md`
 - `ONBOARDING.md`
 
 ## Optional Modules
