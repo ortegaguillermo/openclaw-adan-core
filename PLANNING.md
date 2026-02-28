@@ -35,8 +35,8 @@ Package the Adan persona and autonomous engineering framework into a portable, f
 3. Should provider presets expand to include auth bootstrap hints?
 
 ## Immediate Next Steps
-- Execute first 5-case field-testing batch using `docs/field-testing-protocol.md`.
-- Capture learnings in `.learnings/*` and tune templates.
-- Apply v0.4 governance hard-blockers and promotion templates.
-- Use provider bootstrap hints to track readiness across environments.
-- Prepare v0.5 proposal based on field evidence.
+- [x] Execute first 5-case field-testing batch using `docs/field-testing-protocol.md`.
+- [x] Capture learnings in `.learnings/*` and tune templates.
+- [x] Apply v0.4 governance hard-blockers and promotion templates.
+- [x] Use provider bootstrap hints to track readiness across environments.
+- [ ] Prepare v0.5 proposal based on field evidence.

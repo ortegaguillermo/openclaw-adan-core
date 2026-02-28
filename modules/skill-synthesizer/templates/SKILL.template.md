@@ -14,6 +14,10 @@ description: {{skill.description}}. Use when: {{triggers[0]}}
 - Use additive files; avoid replacing core safety constraints.
 - Require human review before enabling in production.
 
+## Approval Boundary (Required)
+- Any external action requires explicit human approval.
+- No auto-publish, auto-merge, or implicit external execution.
+
 ## Included Resources
 - `SKILL.md`
 - `templates/` (optional)

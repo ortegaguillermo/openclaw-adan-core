@@ -121,6 +121,7 @@ See `FEATURES.md`.
 - `docs/v0.3-execution-board.md`
 - `docs/skill-quality-rubric.md`
 - `docs/field-testing-protocol.md`
+- `docs/field-testing-results-2026-02-28.md`
 - `docs/v0.4-governance-proposal.md`
 - `docs/provider-bootstrap-hints.md`
 - `ONBOARDING.md`
