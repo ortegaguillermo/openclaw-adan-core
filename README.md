@@ -59,6 +59,7 @@ If missing, create:
 ### 4) Run onboarding via files
 Follow `ONBOARDING.md` with:
 - `templates/onboarding.answers.example.yaml`
+- `templates/onboarding.auth-bootstrap.example.yaml`
 - `templates/supplementary.*.md`
 
 ### 5) Merge model-role baseline (optional)
@@ -105,6 +106,7 @@ See `FEATURES.md`.
 - `templates/onboarding.answers.example.yaml` — onboarding input
 - `templates/onboarding.checklist.md` — prerequisite checklist
 - `templates/onboarding.presets/*.yaml` — provider-specific onboarding starters
+- `templates/onboarding.auth-bootstrap.example.yaml` — provider state bootstrap record
 - `templates/supplementary.*.md` — additive overlay templates
 - `templates/learnings/*` — weekly refinement and governance logs
 - `docs/*` — quickstart, roadmap, meta-skill spec, quality/rubric/governance

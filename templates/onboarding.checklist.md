@@ -16,6 +16,7 @@
 - [ ] Google Antigravity configured
 - [ ] OpenAI Codex configured
 - [ ] Local model runtime configured (Ollama/LM Studio/vLLM)
+- [ ] `onboarding.auth-bootstrap.yaml` recorded (available/configured/validated)
 
 ## Tool Availability Inventory
 - [ ] Gemini CLI available
