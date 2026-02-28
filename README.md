@@ -125,6 +125,11 @@ See `FEATURES.md`.
   - scaffold template: `templates/SKILL.template.md`
   - review gate: `REVIEW-CHECKLIST.md`
 
+## Contribution Workflow
+
+Adan Core follows linked-branch PR development.
+See `CONTRIBUTING.md`.
+
 ## License
 
 MIT
