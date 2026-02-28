@@ -24,6 +24,7 @@ Before enabling autonomous features, confirm:
 - VCS provider access configured (GitHub/GitLab/Bitbucket/etc.)
 - A common repository root exists (e.g., `~/Projects`)
 - Required subscriptions/providers are configured (if used)
+- Available tools are explicitly inventoried in onboarding answers (Gemini, Copilot, OpenCode, `gh`, local runtimes)
 
 ## 4) Recommended repo root policy
 

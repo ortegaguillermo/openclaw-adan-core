@@ -48,5 +48,14 @@ subscriptions:
   openai_used: false
   local_model_used: false
 
+tools_inventory:
+  gemini_cli_available: false
+  copilot_available: false
+  opencode_available: false
+  gh_cli_available: false
+  local_runtime_available: false # ollama/lmstudio/vllm
+  additional_tools:
+    - ""
+
 notes:
   non_negotiables: ""

@@ -17,6 +17,13 @@
 - [ ] OpenAI Codex configured
 - [ ] Local model runtime configured (Ollama/LM Studio/vLLM)
 
+## Tool Availability Inventory
+- [ ] Gemini CLI available
+- [ ] Copilot available
+- [ ] OpenCode available
+- [ ] GitHub CLI (`gh`) available
+- [ ] Other required tools recorded in onboarding answers
+
 ## Adan Core Configuration
 - [ ] `SOUL.md` installed
 - [ ] `WORKFLOW_AUTO.md` installed

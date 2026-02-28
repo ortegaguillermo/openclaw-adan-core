@@ -36,6 +36,12 @@ Recommended:
 
 ## Install (Platform-Agnostic)
 
+During onboarding, capture both:
+- provider/subscription availability, and
+- local tool availability (Gemini, Copilot, OpenCode, `gh`, local runtimes)
+
+This lets Adan choose feasible workflows instead of assuming tools exist.
+
 ### 1) Get this repository anywhere on disk
 Use any method you prefer (git clone, zip download, file sync).
 
