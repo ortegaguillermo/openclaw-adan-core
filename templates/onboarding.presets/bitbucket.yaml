@@ -1,0 +1,16 @@
+version: 1
+provider: bitbucket
+
+platform:
+  vcs_provider: bitbucket
+  vcs_ready: false
+  repositories: []
+
+subscriptions:
+  copilot_used: false
+
+tools_inventory:
+  gh_cli_available: false
+  copilot_available: false
+  gemini_cli_available: false
+  opencode_available: false

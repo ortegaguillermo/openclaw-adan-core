@@ -4,9 +4,14 @@ Use this process on any OS or environment.
 
 ## 1) Fill onboarding answers
 
-Copy and edit:
+Choose one path:
 
-`templates/onboarding.answers.example.yaml` → `onboarding.answers.yaml`
+- Generic template:
+  - `templates/onboarding.answers.example.yaml` → `onboarding.answers.yaml`
+- Provider preset starter:
+  - `templates/onboarding.presets/<provider>.yaml` → `onboarding.answers.yaml`
+
+Then edit values for your environment.
 
 This onboarding flow is file-based and platform-agnostic (no required scripts).
 
