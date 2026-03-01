@@ -1,0 +1,21 @@
+version: 1
+instance_id: tracksmith
+enabled: false
+timezone: America/Chicago
+schedule:
+  mode: cron
+  expr: "*/15 * * * *"
+repos:
+  - id: rollerderby-client
+    path: /home/quadcore/projects/rollerderby-client
+    default_branch: main
+branch_policy:
+  prefix: fix/issue-
+  sync_from_default_before_edit: true
+  return_to_default_on_finish: true
+review_policy:
+  require_comment_disposition: true
+  accepted_dispositions: [applies, does_not_apply]
+alert_policy:
+  routine_updates: never
+  notify_on_blocker: always

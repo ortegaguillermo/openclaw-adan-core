@@ -1,0 +1,70 @@
+version: 1
+required:
+  - instance_id
+  - enabled
+  - timezone
+  - schedule
+  - repos
+  - branch_policy
+  - review_policy
+  - alert_policy
+fields:
+  instance_id:
+    type: string
+    pattern: "^[a-z0-9][a-z0-9-]{1,62}$"
+  enabled:
+    type: boolean
+  timezone:
+    type: string
+    example: "America/Chicago"
+  schedule:
+    type: object
+    required: [mode, expr]
+    fields:
+      mode:
+        enum: [cron, every]
+      expr:
+        type: string
+        example: "*/15 * * * *"
+  repos:
+    type: array
+    minItems: 1
+    item:
+      type: object
+      required: [id, path, default_branch]
+      fields:
+        id:
+          type: string
+        path:
+          type: string
+        default_branch:
+          type: string
+  branch_policy:
+    type: object
+    required: [prefix, sync_from_default_before_edit, return_to_default_on_finish]
+    fields:
+      prefix:
+        type: string
+        example: "fix/issue-"
+      sync_from_default_before_edit:
+        type: boolean
+      return_to_default_on_finish:
+        type: boolean
+  review_policy:
+    type: object
+    required: [require_comment_disposition]
+    fields:
+      require_comment_disposition:
+        type: boolean
+      accepted_dispositions:
+        type: array
+        item:
+          enum: [applies, does_not_apply]
+  alert_policy:
+    type: object
+    required: [routine_updates, notify_on_blocker]
+    fields:
+      routine_updates:
+        enum: [always, business_hours_only, never]
+      notify_on_blocker:
+        enum: [always, business_hours_only, never]

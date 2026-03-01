@@ -20,7 +20,8 @@ Example:
     "quota_auto_rebalance": false,
     "aggressive_worker_autoapprove": false,
     "meta_skill_synthesizer": false,
-    "weekly_refinery": false
+    "weekly_refinery": false,
+    "ops_worker_mode": false
   }
 }
 ```
@@ -56,6 +57,11 @@ Example:
   - If true: enables weekly learning audit/promotion routines.
   - Governance references: `docs/v0.4-governance-proposal.md`, `templates/learnings/GOVERNANCE_LOG.md`.
   - Risk: promoting weak patterns without strong governance.
+
+- `ops_worker_mode` (default: `false`)
+  - If true: enables independent, multi-instance ops workers declared in `ops-workers/*.yaml`.
+  - Module path: `modules/ops-worker/`.
+  - Risk: autonomous repo operations if instance scope is too broad.
 
 ## Release Policy
 
