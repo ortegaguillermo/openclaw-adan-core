@@ -149,6 +149,7 @@ See `FEATURES.md`.
 - `templates/onboarding.auth-bootstrap.example.yaml` — provider state bootstrap record
 - `templates/supplementary.*.md` — additive overlay templates
 - `templates/learnings/*` — weekly refinement and governance logs
+- `templates/ops-workers/*` — ops worker instance starters
 - `docs/*` — quickstart, roadmap, meta-skill spec, quality/rubric/governance
 
 ---
@@ -164,6 +165,7 @@ See `FEATURES.md`.
 - `docs/field-testing-results-2026-02-28.md`
 - `docs/v0.4-governance-proposal.md`
 - `docs/provider-bootstrap-hints.md`
+- `docs/ops-worker-multi-instance.md`
 - `ONBOARDING.md`
 
 ## Optional Modules
@@ -172,6 +174,10 @@ See `FEATURES.md`.
   - request contract: `templates/skill-request.example.yaml`
   - scaffold template: `templates/SKILL.template.md`
   - review gate: `REVIEW-CHECKLIST.md`
+- `modules/ops-worker/` — feature-flagged multi-instance operations worker module.
+  - instance schema: `templates/ops-worker.instance.schema.yaml`
+  - instance starter: `templates/ops-worker.instance.example.yaml`
+  - output contract: `OUTPUT-CONTRACT.md`
 
 ## Contribution Workflow
 
