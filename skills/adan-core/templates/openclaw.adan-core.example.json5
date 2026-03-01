@@ -1,0 +1,39 @@
+// Adan Core starter config (merge into ~/.openclaw/openclaw.json)
+{
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      model: {
+        primary: "openai-codex/gpt-5.3-codex",
+        fallbacks: [
+          "github-copilot/claude-haiku-4.5",
+          "google-antigravity/gemini-3-flash"
+        ]
+      },
+      // Fast, low-cost, high-frequency checks
+      heartbeat: {
+        model: "github-copilot/claude-haiku-4.5"
+      },
+      // Background/autofix execution defaults
+      subagents: {
+        model: "github-copilot/claude-haiku-4.5",
+        maxConcurrent: 4
+      }
+    }
+  },
+
+  // Keep tool surface explicit and conservative by default
+  tools: {
+    profile: "coding",
+    // Example:
+    // deny: ["browser", "canvas", "nodes"]
+  },
+
+  // Keep plugin trust narrow
+  plugins: {
+    allow: [
+      "google-antigravity-auth",
+      "telegram"
+    ]
+  }
+}
