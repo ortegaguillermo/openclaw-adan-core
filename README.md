@@ -8,6 +8,40 @@ It turns a general assistant into a proactive engineering collaborator by provid
 - structured onboarding and memory overlays,
 - opt-in feature flags for safe growth.
 
+## Visual Overview
+
+```mermaid
+flowchart TD
+  A[OpenClaw Runtime] --> B[Adan Core Skill Files]
+
+  subgraph B[Adan Core Repository]
+    C[SOUL.md\nPersona + Communication Contract]
+    D[WORKFLOW_AUTO.md\nAutonomous Protocol]
+    E[FEATURES.md\nFlag-Gated Capabilities]
+    F[ONBOARDING.md + templates/*\nFile-Only Setup]
+    G[modules/skill-synthesizer/*\nDeterministic Skill Scaffolding]
+    H[docs/* + .learnings/*\nGovernance + Evidence]
+  end
+
+  B --> I[Configured Workspace\n~/.openclaw/workspace]
+  I --> J[Daily Agent Operation]
+
+  J --> K[Heartbeat Monitoring]
+  J --> L[PR/CI Review Loops]
+  J --> M[Memory Maintenance]
+
+  E --> N{Feature flag enabled?}
+  N -->|No| O[Report-only / blocked]
+  N -->|Yes| P[Allowed autonomous action]
+
+  G --> Q[Generated Skill Candidate]
+  Q --> R[Review Checklist + Rubric]
+  R --> S{Hard-blockers?}
+  S -->|Yes| T[Reject / Rework]
+  S -->|No| U[Human approval gate]
+  U --> V[Trial or Production promotion]
+```
+
 ---
 
 ## File-Only Philosophy
