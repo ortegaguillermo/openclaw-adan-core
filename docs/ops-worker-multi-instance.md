@@ -45,6 +45,17 @@ Set `ops_worker_mode=true` and include instance IDs only after report-only valid
 - For cross-repo tickets, keep one parent issue and one PR per repo.
 - Publish a single final summary referencing all affected PRs.
 
+## Issue Comment Attribution (Cron/Worker Prompts)
+
+Ensure worker cron prompts and runbooks include this mandatory footer for every GitHub issue status/closure comment:
+
+`Model used: <provider/model>`
+
+If the model id cannot be resolved at runtime, workers must emit:
+
+`Model used: unknown`
+
+
 ## Update Strategy Across OpenClaw Installs
 
 - Ship module updates from Adan Core repository.
