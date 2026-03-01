@@ -76,6 +76,11 @@ During onboarding, capture both:
 
 This lets Adan choose feasible workflows instead of assuming tools exist.
 
+### Install path options
+
+- **Root-file mode (recommended for maintainers):** use repository root files directly.
+- **Drop-in skill mode (for workspace installers):** use `skills/adan-core/` and copy into `~/.openclaw/workspace/skills/adan-core`.
+
 ### 1) Get this repository anywhere on disk
 Use any method you prefer (git clone, zip download, file sync).
 
@@ -133,6 +138,7 @@ See `FEATURES.md`.
 - `SKILL.md` — skill manifest
 - `SOUL.md` — identity/persona contract
 - `WORKFLOW_AUTO.md` — autonomous execution protocol
+- `skills/adan-core/*` — drop-in workspace bundle for direct skill installation
 - `ONBOARDING.md` — platform-agnostic onboarding flow
 - `FEATURES.md` — feature-flag matrix and release policy
 - `templates/openclaw.adan-core.example.json5` — model-role starter
