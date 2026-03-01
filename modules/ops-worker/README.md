@@ -16,6 +16,7 @@ Use this module when you want project-specific execution loops (issue -> branch 
 - Instance schema: `templates/ops-worker.instance.schema.yaml`
 - Instance example: `templates/ops-worker.instance.example.yaml`
 - Final report contract: `OUTPUT-CONTRACT.md`
+- Issue status comment example template: `templates/issue-comment.status.example.md`
 
 ## Runtime Rules
 
@@ -25,6 +26,7 @@ Use this module when you want project-specific execution loops (issue -> branch 
 4. Ensure clean workspace and fresh branch before edits.
 5. Return to `main` and pull latest after each completed task.
 6. Notify user only on blockers unless policy overrides.
+7. Append model attribution footer to every GitHub issue status/closure comment: `Model used: <provider/model>` (fallback: `Model used: unknown`).
 
 ## Feature Flags
 

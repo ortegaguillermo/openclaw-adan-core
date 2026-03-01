@@ -11,6 +11,7 @@ Every worker run must return a compact, machine-readable summary block.
 - `prs_touched`: array of PR URLs
 - `ci_status`: `green` | `failing` | `mixed` | `unknown`
 - `review_comments_addressed`: number
+- `model_used`: string (`provider/model`; fallback: `unknown`)
 - `blocker`: string (`none` if not blocked)
 - `next_action`: short sentence
 
@@ -21,3 +22,21 @@ Include one short Spanish summary only when:
 - policy asks for progress output.
 
 Otherwise, no user-facing output is required.
+
+
+## GitHub Issue Comment Footer Requirement
+
+For every GitHub issue status/closure comment posted by the worker, append:
+
+`Model used: <provider/model>`
+
+If model identity is unavailable, use:
+
+`Model used: unknown`
+
+### Example (status comment)
+
+```text
+Status: Documentation updates are in progress and PR #123 is open for review.
+Model used: google-antigravity/claude-opus-4-6-thinking
+```
