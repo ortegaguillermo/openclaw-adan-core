@@ -40,7 +40,7 @@ Install and validate this baseline before optional/advanced skills:
 - `github` — deterministic issue/PR/CI operations via GitHub tooling
   - Quick validation: `gh auth status`
 - `session-logs` — post-run auditing and retrospective debugging
-  - Quick validation: run one sample `session-logs` query from your environment and confirm it returns records
+  - Quick validation: `openclaw sessions list --limit 5` and then `openclaw sessions history <sessionKey> --limit 5`
 
 These are recommended defaults for operational reliability, not hard requirements for every profile.
 
