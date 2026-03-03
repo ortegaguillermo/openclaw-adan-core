@@ -175,8 +175,8 @@ See `FEATURES.md`.
   - scaffold template: `templates/SKILL.template.md`
   - review gate: `REVIEW-CHECKLIST.md`
 - `modules/ops-worker/` — feature-flagged multi-instance operations worker module.
-  - instance schema: `templates/ops-worker.instance.schema.yaml`
-  - instance starter: `templates/ops-worker.instance.example.yaml`
+  - instance schema: `modules/ops-worker/templates/ops-worker.instance.schema.yaml`
+  - instance starter: `modules/ops-worker/templates/ops-worker.instance.example.yaml`
   - output contract: `OUTPUT-CONTRACT.md`
 
 ## Contribution Workflow
