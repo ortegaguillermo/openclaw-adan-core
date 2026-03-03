@@ -15,7 +15,7 @@ Use this module when you want project-specific execution loops (issue -> branch 
 
 - Instance schema: `modules/ops-worker/templates/ops-worker.instance.schema.yaml`
 - Instance example: `modules/ops-worker/templates/ops-worker.instance.example.yaml`
-- Final report contract: `modules/ops-worker/OUTPUT-CONTRACT.md`
+- Final report contract: `OUTPUT-CONTRACT.md`
 - Issue status comment example template: `modules/ops-worker/templates/issue-comment.status.example.md`
 
 ## Runtime Rules

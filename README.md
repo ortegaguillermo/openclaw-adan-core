@@ -177,8 +177,7 @@ See `FEATURES.md`.
 - `modules/ops-worker/` — feature-flagged multi-instance operations worker module.
   - instance schema: `modules/ops-worker/templates/ops-worker.instance.schema.yaml`
   - instance starter: `modules/ops-worker/templates/ops-worker.instance.example.yaml`
-  - issue status template: `modules/ops-worker/templates/issue-comment.status.example.md`
-  - output contract: `modules/ops-worker/OUTPUT-CONTRACT.md`
+  - output contract: `OUTPUT-CONTRACT.md`
 
 ## Contribution Workflow
 
