@@ -6,6 +6,14 @@
 - [ ] Git installed
 - [ ] Common repository root chosen (e.g., `~/Projects`)
 
+## Baseline Skills (recommended first)
+- [ ] `tmux` installed/configured (purpose: persistent worker/session supervision)
+  - Validation: `tmux ls` (or `tmux new -d -s adan-check`)
+- [ ] GitHub CLI (`gh`) instalada y autenticada (purpose: deterministic issue/PR/CI operations)
+  - Validation: `gh auth status`
+- [ ] `session-logs` available (purpose: post-run auditing and retrospective debugging)
+  - Validation: `openclaw sessions list --limit 5` + `openclaw sessions history <sessionKey> --limit 5`
+
 ## VCS
 - [ ] VCS provider selected (GitHub/GitLab/Bitbucket/Azure DevOps/Other)
 - [ ] VCS credentials configured

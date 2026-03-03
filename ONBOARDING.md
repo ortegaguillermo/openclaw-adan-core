@@ -31,7 +31,20 @@ Before enabling autonomous features, confirm:
 - Required subscriptions/providers are configured (if used)
 - Available tools are explicitly inventoried in onboarding answers (Gemini, Copilot, OpenCode, `gh`, local runtimes)
 
-## 3.5) Provider bootstrap hints
+## 3.5) Baseline skills first (recommended)
+
+Install and validate this baseline before optional/advanced skills:
+
+- `tmux` — persistent worker/session supervision
+  - Quick validation: `tmux ls` (or create one with `tmux new -d -s adan-check`)
+- `github` — deterministic issue/PR/CI operations via GitHub tooling
+  - Quick validation: `gh auth status`
+- `session-logs` — post-run auditing and retrospective debugging
+  - Quick validation: `openclaw sessions list --limit 5` and then `openclaw sessions history <sessionKey> --limit 5`
+
+These are recommended defaults for operational reliability, not hard requirements for every profile.
+
+## 4) Provider bootstrap hints
 
 Optionally copy:
 
@@ -46,7 +59,7 @@ Use it to record provider state (`available`, `configured`, `validated`) for:
 
 Reference: `docs/provider-bootstrap-hints.md`
 
-## 4) Recommended repo root policy
+## 5) Recommended repo root policy
 
 Define one shared clone root in `onboarding.answers.yaml`:
 
@@ -54,7 +67,7 @@ Define one shared clone root in `onboarding.answers.yaml`:
 
 Store all working repositories under this root for consistent automation.
 
-## 5) Safety defaults
+## 6) Safety defaults
 
 - Keep risky feature flags off initially.
 - Start in report-only mode for 24–48 hours.
