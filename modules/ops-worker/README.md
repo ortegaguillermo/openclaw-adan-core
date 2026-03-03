@@ -18,6 +18,19 @@ Use this module when you want project-specific execution loops (issue -> branch 
 - Final report contract: `OUTPUT-CONTRACT.md`
 - Issue status comment example template: `modules/ops-worker/templates/issue-comment.status.example.md`
 
+## Instance Extension Policy
+
+Workspace instances (`~/.openclaw/workspace/ops-workers/*.yaml`) may include additional fields beyond the base schema for instance-specific tuning. However:
+
+1. **All required schema fields** must be present and valid.
+2. **Extension fields** (e.g., `issue_selection_policy`) should be documented in the instance file as comments or in a companion `*.schema-extensions.yaml`.
+3. **Template examples** in this repo reflect only the base schema; do not add instance-specific fields to `templates/ops-workers/*.example.yaml`.
+
+This separation allows:
+- Base schema to remain stable and reusable across installs.
+- Instances to be customized without forking the schema.
+- Clear distinction between what's required everywhere vs. what's tuned locally.
+
 ## Runtime Rules
 
 1. Treat missing flags as disabled.
