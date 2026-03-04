@@ -16,21 +16,22 @@ This guide defines how to instantiate independent operations workers per project
 
 ## Enablement
 
-Add these flags in `adan.flags.json`:
+1. Enable the feature flag in `adan.flags.json`:
 
 ```json
 {
   "version": 1,
   "features": {
-    "ops_worker_mode": false
-  },
-  "ops_workers": {
-    "enabled_instances": []
+    "ops_worker_mode": true
   }
 }
 ```
 
-Set `ops_worker_mode=true` and include instance IDs only after report-only validation.
+2. Add an instance YAML in `~/.openclaw/workspace/ops-workers/<instance-id>.yaml`:
+
+See the next section for instance schema and examples.
+
+**Workflow:** Start with `enabled: false` in the instance YAML for report-only validation. After 24-48h of healthy runs, set `enabled: true` to begin autonomous action.
 
 ## Instance Lifecycle
 
