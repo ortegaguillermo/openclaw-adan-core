@@ -43,7 +43,8 @@ This separation allows:
 
 ## Feature Flags
 
-- `ops_worker_mode` (boolean)
-- `ops_worker_instances` (list of enabled instance IDs)
+- `ops_worker_mode` (boolean): Enable/disable ops worker execution globally.
 
-Default for all new installs: disabled.
+Default for all new installs: `false`.
+
+Instance discovery is automatic from `~/.openclaw/workspace/ops-workers/*.yaml` files; no separate instance list is needed.
