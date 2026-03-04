@@ -1,0 +1,67 @@
+# skill-request.example.yaml
+# Template for autonomous skill requests in meta-skill-synthesizer
+# See docs/field-testing-results-2026-02-28.md for context
+
+version: 1
+metadata:
+  request_id: "SR-001"
+  requested_by: "user@example.com"
+  created_at: "2026-03-04T10:00:00Z"
+  priority: "high"  # low, medium, high, critical
+
+request:
+  name: "example-skill"
+  description: "Brief, one-line description of what the skill does"
+  
+  trigger:
+    type: "command"  # command, workflow, heartbeat, cron, webhook
+    pattern: "/skill-name [args]"
+    examples:
+      - "/example-skill fetch https://example.com"
+      - "/example-skill process --format json"
+    specificity: "high"  # loose, medium, high
+    # Specificity rationale: Commands use unique verb/arg patterns to avoid collisions
+  
+  scope:
+    applies_to: "multi-project"  # single-project, multi-project, cross-org
+    repos: []  # empty for cross-project; list specific repo ids if scoped
+    excluded_contexts: ["high-security", "production-deployment"]
+  
+  # HARD BLOCKER: External Approval Requirements
+  approval_boundary:
+    requires_human_approval_for:
+      - "destructive operations (delete, overwrite)"
+      - "external API calls with costs (cloud providers, third-party APIs)"
+      - "production environment changes"
+      - "cross-org integration"
+    pre_approval_gates:
+      - "confirm write access to target repos"
+      - "confirm external API keys are available"
+      - "confirm no conflicting scheduled tasks"
+  
+  implementation:
+    tooling:
+      - "github"
+      - "web_fetch"
+      - "exec"
+    languages: ["python", "bash"]
+    estimated_complexity: "medium"  # low, medium, high
+  
+  safety:
+    rollback_capable: true
+    testing_required: true
+    max_blast_radius: "single-project"  # local, single-project, multi-project
+    
+output:
+  contract:
+    format: "markdown"
+    required_sections:
+      - "status (success|blocked|error)"
+      - "repos_affected"
+      - "prs_created"
+      - "model_used"
+    example_output: |
+      Status: SUCCESS
+      Repos affected: example-skill
+      PRs created: #123
+      Model used: provider/model-name

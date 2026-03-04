@@ -19,3 +19,18 @@ review_policy:
 alert_policy:
   routine_updates: never
   notify_on_blocker: always
+scope_policy:
+  include:
+    - docs
+    - templates
+    - module_consistency
+    - feature_flags_consistency
+  exclude:
+    - release_tagging
+    - auto_merge
+    - destructive_repo_rewrites
+blocker_policy:
+  escalate_if:
+    - credentials_or_permissions
+    - subjective_architecture_decision
+    - external_dependency_outage
