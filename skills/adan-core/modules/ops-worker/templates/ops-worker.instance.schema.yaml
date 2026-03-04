@@ -8,6 +8,8 @@ required:
   - branch_policy
   - review_policy
   - alert_policy
+  - scope_policy
+  - blocker_policy
 fields:
   instance_id:
     type: string
@@ -70,6 +72,7 @@ fields:
         enum: [always, business_hours_only, never]
   scope_policy:
     type: object
+    required: [include, exclude]
     fields:
       include:
         type: array
@@ -83,8 +86,10 @@ fields:
         example: [release_tagging, auto_merge, destructive_repo_rewrites]
   blocker_policy:
     type: object
+    required: [escalate_if]
     fields:
       escalate_if:
         type: array
         item:
-          enum: [credentials_or_permissions, subjective_architecture_decision, external_dependency_outage]
+          type: string
+        example: [credentials_or_permissions, subjective_architecture_decision, external_dependency_outage]
