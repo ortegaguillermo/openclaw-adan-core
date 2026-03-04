@@ -9,5 +9,6 @@
     "meta_skill_synthesizer": false,
     "weekly_refinery": false,
     "ops_worker_mode": false
-  }
+  },
+  "_comment": "ops_worker_instances is deprecated—instances are auto-discovered from ~/.openclaw/workspace/ops-workers/*.yaml when ops_worker_mode=true"
 }
