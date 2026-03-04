@@ -16,7 +16,7 @@ This guide defines how to instantiate independent operations workers per project
 
 ## Enablement
 
-1. Enable the feature flag in `adan.flags.json`:
+1. Enable the feature flag in `~/.openclaw/workspace/adan.flags.json`:
 
 ```json
 {
@@ -26,6 +26,8 @@ This guide defines how to instantiate independent operations workers per project
   }
 }
 ```
+
+> **Note on `ops_worker_instances`:** Some older documentation (for example, `modules/ops-worker/README.md`) references an additional `ops_worker_instances` feature flag that lists enabled instance IDs. For the multi-instance workflow described in this guide, instances are **auto-discovered** from `~/.openclaw/workspace/ops-workers/*.yaml`, and `ops_worker_instances` is not required and can be treated as deprecated/ignored.
 
 2. Add an instance YAML in `~/.openclaw/workspace/ops-workers/<instance-id>.yaml`:
 
