@@ -24,7 +24,7 @@ Workspace instances (`~/.openclaw/workspace/ops-workers/*.yaml`) may include add
 
 1. **All required schema fields** must be present and valid.
 2. **Extension fields** (e.g., `issue_selection_policy`) should be documented in the instance file as comments or in a companion `*.schema-extensions.yaml`.
-3. **Template examples** in this repo reflect only the base schema; do not add instance-specific fields to `templates/ops-workers/*.example.yaml`.
+3. **Template examples** in this repo reflect only the base schema; do not add instance-specific fields to `modules/ops-worker/templates/ops-worker.instance.example.yaml`.
 
 This separation allows:
 - Base schema to remain stable and reusable across installs.
