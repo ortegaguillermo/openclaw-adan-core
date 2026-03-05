@@ -47,4 +47,4 @@ This separation allows:
 
 Default for all new installs: `false`.
 
-Instance discovery is automatic from `~/.openclaw/workspace/ops-workers/*.yaml` files; no separate instance list is needed.
+Instance discovery is automatic from `~/.openclaw/workspace/ops-workers/*.yaml` files; **no separate `ops_worker_instances` flag is required**. (Older documentation may reference `ops_worker_instances` as a deprecated approach; the multi-instance workflow auto-discovers instances from YAML files.)
