@@ -13,13 +13,14 @@ Run at least 5 synthesis requests:
 
 ## Procedure
 
-1. Fill a request using `modules/skill-synthesizer/templates/skill-request.example.yaml`
-2. Generate output scaffold
-3. Review with:
+1. Fill a request using `templates/skill-request.example.yaml` (or `modules/skill-synthesizer/templates/skill-request.example.yaml`)
+2. Review trigger design against `templates/TRIGGER-GUIDELINES.md`
+3. Generate output scaffold
+4. Review with:
    - `modules/skill-synthesizer/REVIEW-CHECKLIST.md`
    - `docs/skill-quality-rubric.md`
-4. Record outcome in `.learnings/LEARNINGS.md` or `.learnings/ERRORS.md`
-5. Capture promotion candidate or rejection reason
+5. Record outcome in `.learnings/LEARNINGS.md` or `.learnings/ERRORS.md`
+6. Capture promotion candidate or rejection reason
 
 ## Pass Criteria
 

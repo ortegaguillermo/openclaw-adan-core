@@ -33,6 +33,14 @@
 
 ## Actions
 
-- Add stricter trigger examples to `skill-request.example.yaml`.
-- Add mandatory approval-boundary section for high-risk requests in `SKILL.template.md`.
+- ✅ Add stricter trigger examples to `skill-request.example.yaml` (completed in templates/).
+- ✅ Add mandatory approval-boundary section for high-risk requests in skill-request template (completed).
+- ✅ Create `TRIGGER-GUIDELINES.md` for future skill designers (completed in templates/).
 - Keep `meta_skill_synthesizer=false` and `weekly_refinery=false` by default.
+
+## Reference Materials for Future Requests
+
+When designing new skills, refer to:
+- `templates/TRIGGER-GUIDELINES.md` — specificity rules and approval boundaries
+- `templates/skill-request.example.yaml` — structured request format with trigger validation
+- `docs/skill-quality-rubric.md` — scoring and safety criteria
