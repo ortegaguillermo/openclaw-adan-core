@@ -22,6 +22,15 @@ Example:
     "meta_skill_synthesizer": false,
     "weekly_refinery": false,
     "ops_worker_mode": false
+  },
+  "autonomyPolicy": {
+    "enabled": true,
+    "requireOwnerApprovedComment": true,
+    "ownerApprovedToken": "approved",
+    "allowAutoclosePR": false,
+    "allowAutomergePR": false,
+    "allowAutotagRelease": false,
+    "logBlockedActions": true
   }
 }
 ```
@@ -62,6 +71,60 @@ Example:
   - If true: enables independent, multi-instance ops workers declared in `ops-workers/*.yaml`.
   - Module path: `modules/ops-worker/`.
   - Risk: autonomous repo operations if instance scope is too broad.
+
+## Autonomy Policy
+
+The `autonomyPolicy` block governs high-risk autonomous actions (issue work, PR merging, release tagging).
+
+**Structure:**
+
+```json
+{
+  "autonomyPolicy": {
+    "enabled": true,
+    "requireOwnerApprovedComment": true,
+    "ownerApprovedToken": "approved",
+    "allowAutoclosePR": false,
+    "allowAutomergePR": false,
+    "allowAutotagRelease": false,
+    "logBlockedActions": true
+  }
+}
+```
+
+**Fields:**
+
+- `enabled` (default: `true`)
+  - If true: autonomy rules are enforced.
+  - If false: all restrictions are disabled (⚠️ unsafe).
+
+- `requireOwnerApprovedComment` (default: `true`)
+  - If true: agent MUST find owner comment with `ownerApprovedToken` before starting work on an issue.
+  - If false: agent may work without explicit approval (not recommended).
+
+- `ownerApprovedToken` (default: `"approved"`)
+  - The exact token (case-sensitive) that owner/maintainer must post in a comment.
+  - Example: `"approved"`, `"go"`, `"adan proceed"`.
+
+- `allowAutoclosePR` (default: `false`)
+  - If true: agent may close stale PRs after timeout.
+  - If false (recommended): PRs remain open for human decision.
+
+- `allowAutomergePR` (default: `false`)
+  - If true: agent may merge PRs after all checks pass.
+  - If false (recommended): PRs require human merge.
+
+- `allowAutotagRelease` (default: `false`)
+  - If true: agent may tag and create releases autonomously.
+  - If false (recommended): releases require human approval.
+
+- `logBlockedActions` (default: `true`)
+  - If true: all blocked actions are logged to workspace memory.
+  - Enables audit trail and historical review.
+
+**Full specification:** [autonomy-governance.md](docs/autonomy-governance.md)
+
+**Usage in ops-worker:** Instance YAML files may override autonomy policy with `autonomy_overrides` block. See [ops-worker.autonomy-policy.example.md](templates/ops-worker.autonomy-policy.example.md).
 
 ## Release Policy
 
