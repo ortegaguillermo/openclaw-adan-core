@@ -2,6 +2,17 @@
 
 Adan Core uses a strict linked-branch workflow.
 
+## Repository Scope
+
+This repository defines **Adan Core itself**—the persona, protocols, and governance for autonomous behavior in OpenClaw.
+
+**Do not confuse:**
+- **Repository files** (SOUL.md, WORKFLOW_AUTO.md, etc.) — distributed to users as templates
+- **Authorship files** (AGENTS.md) — guidance for maintainers and contributors (repo-only, not distributed)
+- **Workspace files** (MEMORY.md, USER.md, adan.flags.json) — created and maintained by end users (never in this repo)
+
+See [AGENTS.md](./AGENTS.md) for authorship governance and build validation rules.
+
 ## Branching Policy (required)
 
 - Never push feature work directly to `main`.
