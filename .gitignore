@@ -1,0 +1,9 @@
+# Lock files (runtime-only, not versioned)
+.ops/*.lock
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store

@@ -9,5 +9,14 @@
     "meta_skill_synthesizer": false,
     "weekly_refinery": false,
     "ops_worker_mode": false
+  },
+  "autonomyPolicy": {
+    "enabled": true,
+    "requireOwnerApprovedComment": true,
+    "ownerApprovedToken": "approved",
+    "allowAutoclosePR": false,
+    "allowAutomergePR": false,
+    "allowAutotagRelease": false,
+    "logBlockedActions": true
   }
 }

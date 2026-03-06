@@ -2,13 +2,15 @@
 
 Adan Core uses **opt-in feature flags**. New capabilities are disabled by default and must be explicitly enabled.
 
+**Canonical source:** Workspace root `FEATURES.md`
+
 ## Flag File
 
 Create this file in your workspace root:
 
 `~/.openclaw/workspace/adan.flags.json`
 
-Example:
+Example (see root `templates/adan.flags.example.json` for full current example):
 
 ```json
 {
@@ -22,6 +24,15 @@ Example:
     "meta_skill_synthesizer": false,
     "weekly_refinery": false,
     "ops_worker_mode": false
+  },
+  "autonomyPolicy": {
+    "enabled": true,
+    "requireOwnerApprovedComment": true,
+    "ownerApprovedToken": "approved",
+    "allowAutoclosePR": false,
+    "allowAutomergePR": false,
+    "allowAutotagRelease": false,
+    "logBlockedActions": true
   }
 }
 ```
@@ -62,6 +73,42 @@ Example:
   - If true: enables independent, multi-instance ops workers declared in `ops-workers/*.yaml`.
   - Module path: `modules/ops-worker/`.
   - Risk: autonomous repo operations if instance scope is too broad.
+
+## Autonomy Policy
+
+The `autonomyPolicy` block governs high-risk autonomous actions (issue work, PR merging, release tagging).
+
+**Default behavior:** Safe by default. All high-risk actions disabled unless explicitly enabled.
+
+**Structure:**
+
+```json
+{
+  "autonomyPolicy": {
+    "enabled": true,
+    "requireOwnerApprovedComment": true,
+    "ownerApprovedToken": "approved",
+    "allowAutoclosePR": false,
+    "allowAutomergePR": false,
+    "allowAutotagRelease": false,
+    "logBlockedActions": true
+  }
+}
+```
+
+**Field Reference:**
+
+| Field | Type | Default | Meaning |
+|-------|------|---------|---------|
+| `enabled` | bool | `true` | Activate all autonomy rules. |
+| `requireOwnerApprovedComment` | bool | `true` | Require explicit owner comment with token before starting issue work. |
+| `ownerApprovedToken` | string | `"approved"` | Case-sensitive token that owner must post in comment. |
+| `allowAutoclosePR` | bool | `false` | Allow autonomous PR closing (dangerous; keep false). |
+| `allowAutomergePR` | bool | `false` | Allow autonomous PR merging (dangerous; keep false). |
+| `allowAutotagRelease` | bool | `false` | Allow autonomous release tagging (very dangerous; keep false). |
+| `logBlockedActions` | bool | `true` | Log all blocked decisions to audit trail. |
+
+**Full specification and workflow integration:** See root `docs/autonomy-governance.md` and `WORKFLOW_AUTO.md`.
 
 ## Release Policy
 
