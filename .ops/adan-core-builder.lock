@@ -1,7 +1,0 @@
-{
-  "instance_id": "adan-core-builder",
-  "locked_at": "2026-03-07T05:15:00Z",
-  "issue": 32,
-  "task": "feat(ops-worker): review comment disposition tracking",
-  "branch": "chore/issue32-review-disposition"
-}

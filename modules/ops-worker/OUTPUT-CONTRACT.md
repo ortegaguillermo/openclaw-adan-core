@@ -22,7 +22,7 @@ Every worker run must return a compact, machine-readable summary block.
 
 ## Review Comment Disposition Tracking (New in v1.3)
 
-When `review_policy.require_comment_disposition` is enabled:
+These fields are always present in output. When `review_policy.require_comment_disposition: false`, set the related metrics to `0`.
 
 - **`review_comments_total`**: Total number of review comments/threads on all PRs touched
 - **`review_comments_addressed`**: Comments that received a response (old metric, kept for backward compatibility)
@@ -31,7 +31,7 @@ When `review_policy.require_comment_disposition` is enabled:
 - **`review_comments_does_not_apply`**: Count of comments with `does_not_apply` disposition
 - **`review_threads_resolved`**: Threads marked resolved via GitHub API (when `resolve_threads_when_possible: true`)
 
-**Quality Gate:** Worker fails if `review_comments_dispositioned < review_comments_total` (unless review_policy requires no disposition).
+**Quality Gate:** When `review_policy.require_comment_disposition: true`, the worker fails if `review_comments_dispositioned < review_comments_total`. When `review_policy.require_comment_disposition: false`, this quality gate is disabled.
 
 ## Human Summary (Spanish)
 
