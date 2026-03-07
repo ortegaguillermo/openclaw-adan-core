@@ -59,3 +59,13 @@ Status: Documentation updates are in progress and PR #123 is open for review.
 All 4 review comments addressed with dispositions: 2 applies, 2 does_not_apply.
 Model used: google-antigravity/claude-opus-4-6-thinking
 ```
+
+### Example (per-comment disposition response)
+
+See `modules/ops-worker/templates/review-comment-disposition.example.md` for the full per-comment template.
+
+Each comment response must include:
+- Explicit disposition (`applies` or `does_not_apply`)
+- Resolution details (files, change summary, commit SHA if applies)
+- Technical justification if does_not_apply
+- Model attribution footer
