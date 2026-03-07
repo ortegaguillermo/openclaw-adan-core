@@ -33,12 +33,16 @@ Adan Core lives in the `openclaw-adan-core` repository and serves as:
 
 ## What Gets Installed?
 
-When a user onboards via `openclaw init adan-core` (or equivalent), they receive:
+Installation/onboarding for Adan Core is file-based and documented canonically in:
+- `README.md` (workspace install section)
+- `ONBOARDING.md` (step-by-step setup)
+
+When a user follows that documented flow, they receive:
 
 - SOUL.md template → becomes `~/.openclaw/workspace/SOUL.md` (user customizes)
 - WORKFLOW_AUTO.md template → becomes `~/.openclaw/workspace/WORKFLOW_AUTO.md` (user customizes)
 - FEATURES.md → reference copy (read-only)
-- All templates → used once, then stored locally
+- Onboarding templates (`templates/onboarding.*.yaml`) → used during setup, then stored locally
 
 **What they do NOT receive:**
 - This `AGENTS.md` (repo guidance only)
@@ -48,12 +52,10 @@ When a user onboards via `openclaw init adan-core` (or equivalent), they receive
 
 Before releasing Adan Core:
 
-1. ✅ Verify `AGENTS.md` is in `.gitignore` or has no distribution rule.
+1. ✅ Verify `AGENTS.md` is in `.npmignore` or has explicit exclusion rule.
 2. ✅ Confirm `SKILL.md` explicitly lists excluded files.
 3. ✅ Check CI/build logs that `AGENTS.md` was not packaged.
 4. ✅ Document in CONTRIBUTING.md that AGENTS.md is repo-only.
-
-See [.ops/release-checklist.md](./docs/) for full pre-release validation.
 
 ## Contribution Guidelines
 

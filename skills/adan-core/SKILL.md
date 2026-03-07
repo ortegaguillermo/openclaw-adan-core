@@ -31,3 +31,11 @@ Adan Core defines behavior, not only style. It combines:
 - `templates/supplementary.*.md`
 - `templates/learnings/*`
 - `modules/skill-synthesizer/*` (optional, feature-flagged)
+
+## Excluded Resources (Author Guidance Only)
+
+**`AGENTS.md` is NOT distributed as part of Adan Core installations.**
+
+- `AGENTS.md` (in the source repository) is an authorship and governance guide for OpenClaw contributors and maintainers.
+- It documents how to define and maintain Adan Core itself—not end-user runtime behavior.
+- Workspace-local files created by users (user-created `AGENTS.md`, `MEMORY.md`, `USER.md`, etc.) are never bundled with Adan Core—they belong to the user's own workspace.

@@ -18,7 +18,5 @@ memory/
 # CI/Cron Artifacts
 .github/workflows/
 
-# Examples (Keep Only in Docs)
-templates/onboarding.answers.example.yaml
-templates/onboarding.auth-bootstrap.example.yaml
-templates/onboarding.presets/
+# Note: Onboarding templates are distributed.
+# They are required for the documented file-based onboarding flow (ONBOARDING.md, README.md)
