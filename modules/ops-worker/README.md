@@ -17,6 +17,7 @@ Use this module when you want project-specific execution loops (issue -> branch 
 - Instance example: `modules/ops-worker/templates/ops-worker.instance.example.yaml`
 - Final report contract: `OUTPUT-CONTRACT.md`
 - Issue status comment example template: `modules/ops-worker/templates/issue-comment.status.example.md`
+- Per-comment review disposition template: `modules/ops-worker/templates/review-comment-disposition.example.md`
 
 ## Instance Extension Policy
 
@@ -33,7 +34,65 @@ This separation allows:
 
 ## Core Capabilities
 
-### Start Announcement (New in v1.2)
+### Per-Comment Review Disposition (New in v1.3)
+
+Ops-worker can process **individual review comments** on PRs with explicit disposition tracking, ensuring every comment receives a targeted response rather than ambiguous global summaries.
+
+**Configuration:**
+
+```yaml
+review_policy:
+  require_comment_disposition: true
+  accepted_dispositions: [applies, does_not_apply]
+  per_comment_processing:
+    enabled: true
+    resolve_threads_when_possible: true
+    require_resolution_details_on_applies: true
+    fail_quality_gate_if_undispositioned: true
+```
+
+**Behavior:**
+
+- For each review comment on the PR, the worker generates an individual response **in the same thread**.
+- Each response includes one of two dispositions:
+  - `applies` — the comment's suggestion is within scope; implementation details and commit SHA are provided.
+  - `does_not_apply` — the comment is outside scope; a technical justification and reference links are provided.
+- If `resolve_threads_when_possible: true`, the worker attempts to mark the thread as resolved after responding.
+- If `fail_quality_gate_if_undispositioned: true`, any comment without an explicit disposition blocks the PR and sets worker status to `blocked`.
+
+**Response Template:**
+
+See `modules/ops-worker/templates/review-comment-disposition.example.md` for full format.
+
+Minimum required per response:
+- **Disposition header:** `**Disposition: applies**` or `**Disposition: does_not_apply**`
+- **If applies:** files affected, resolution details, commit SHA (if available)
+- **If does_not_apply:** technical reason, reference links to scope docs or related issues
+- **Model attribution:** `Model used: <provider/model>` footer (required)
+
+**Output Metrics:**
+
+The worker output contract includes these metrics when per-comment processing is enabled:
+
+```json
+{
+  "review_comments_total": 6,
+  "review_comments_dispositioned": 6,
+  "review_comments_applies": 4,
+  "review_comments_does_not_apply": 2,
+  "review_threads_resolved": 6,
+  "review_undispositioned": 0
+}
+```
+
+**Quality Gate:**
+
+If a PR has undispositioned comments and `fail_quality_gate_if_undispositioned: true`:
+- Worker status: `blocked`
+- Blocker reason: `"Review comments lack required dispositions: N pending"`
+- PR cannot advance until all comments are addressed
+
+### Start Announcement (Introduced in v1.2)
 
 Ops-worker can automatically announce when it starts processing a GitHub issue, providing real-time visibility into task execution.
 
