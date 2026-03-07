@@ -37,6 +37,8 @@ This separation allows:
 
 Ops-worker can automatically announce when it starts processing a GitHub issue, providing real-time visibility into task execution.
 
+> Note: this section defines the expected behavior contract for ops-worker implementations. Runtime wiring may be provided by the host/orchestrator while preserving this contract.
+
 **Configuration:**
 
 ```yaml
