@@ -62,6 +62,26 @@ fields:
         type: array
         item:
           enum: [applies, does_not_apply]
+      per_comment_processing:
+        type: object
+        description: Configuration for per-comment review disposition tracking
+        fields:
+          enabled:
+            type: boolean
+            default: false
+            description: Enable per-comment review disposition requirement
+          resolve_threads_when_possible:
+            type: boolean
+            default: true
+            description: Automatically resolve GitHub review threads after responding with disposition
+          require_resolution_details_on_applies:
+            type: boolean
+            default: true
+            description: When disposition is "applies", require specific files/commits/changes in response
+          fail_quality_gate_if_undispositioned:
+            type: boolean
+            default: true
+            description: Fail quality gate if any review comment lacks explicit disposition
   alert_policy:
     type: object
     required: [routine_updates, notify_on_blocker]

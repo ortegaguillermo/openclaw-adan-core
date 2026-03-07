@@ -17,6 +17,7 @@ Use this module when you want project-specific execution loops (issue -> branch 
 - Instance example: `modules/ops-worker/templates/ops-worker.instance.example.yaml`
 - Final report contract: `OUTPUT-CONTRACT.md`
 - Issue status comment example template: `modules/ops-worker/templates/issue-comment.status.example.md`
+- Review comment disposition example template: `modules/ops-worker/templates/review-comment-disposition.example.md`
 
 ## Instance Extension Policy
 
@@ -77,6 +78,53 @@ start_announcement:
 Branch: {branch}
 Time: {start_time}
 ```
+
+## Per-Comment Review Disposition (New in v1.3)
+
+Ops-worker can be configured to require explicit disposition (applies/does_not_apply) for every review comment on a PR, ensuring comprehensive engagement with reviewer feedback.
+
+> Note: this section defines the expected behavior contract for ops-worker implementations. Runtime wiring may be provided by the host/orchestrator while preserving this contract.
+
+**Configuration:**
+
+```yaml
+review_policy:
+  require_comment_disposition: true
+  accepted_dispositions: [applies, does_not_apply]
+  per_comment_processing:
+    enabled: true
+    resolve_threads_when_possible: true
+    require_resolution_details_on_applies: true
+    fail_quality_gate_if_undispositioned: true
+```
+
+**Behavior:**
+
+- When `per_comment_processing.enabled: true`, the worker processes each review comment individually
+- For every review comment, a response is posted in that same thread with explicit disposition
+- Each response must include:
+  - **Disposition:** `applies` or `does_not_apply` (required)
+  - **Reason:** Brief technical justification (required for both)
+  - **Resolution details:** When disposition is `applies`, include affected files, change summary, and commit SHA (if `require_resolution_details_on_applies: true`)
+- If `resolve_threads_when_possible: true`, threads are marked resolved after responding and implementing changes
+- If any comment lacks disposition and `fail_quality_gate_if_undispositioned: true`, the worker blocks PR advancement with `status: blocked`
+
+**Response Template:**
+
+See `modules/ops-worker/templates/review-comment-disposition.example.md` for complete examples of both disposition types.
+
+**Quality Gate:**
+
+The quality gate fails if:
+- `fail_quality_gate_if_undispositioned: true` (config), AND
+- One or more review comments on PRs listed in `prs_touched` lack an explicit disposition
+
+Output will include:
+- `review_comments_total` — Total review comments observed
+- `review_comments_dispositioned` — Comments with explicit disposition
+- `review_comments_undispositioned` — Comments lacking disposition (blocks if > 0 and policy requires)
+- `review_comments_applies` — Count of "applies" dispositions
+- `review_comments_does_not_apply` — Count of "does_not_apply" dispositions
 
 ## Runtime Rules
 
