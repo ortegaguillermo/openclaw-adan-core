@@ -36,6 +36,7 @@ Adan Core defines behavior, not only style. It combines:
 
 **`AGENTS.md` is NOT distributed as part of Adan Core installations.**
 
-- `AGENTS.md` (this repo) is an authorship and governance guide for OpenClaw contributors and maintainers.
-- It documents how to define and maintain Adan Core itself—not end-user runtime behavior.
-- Workspace-local files created by users (user-created `AGENTS.md`, `MEMORY.md`, `USER.md`, etc.) are never bundled with Adan Core—they belong to the user's own workspace.
+- `AGENTS.md` is an authorship and governance guide kept in the repository for contributors.
+- It documents how to define and maintain Adan Core itself—not runtime behavior for end users.
+- It defines operational continuity for the OpenClaw maintainer and should not ship with distributed packages.
+- Workspace-local files (`AGENTS.md`, `MEMORY.md`, `USER.md`, etc.) are user-specific and never bundled.
