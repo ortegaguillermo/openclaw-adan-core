@@ -10,51 +10,28 @@ Every worker run must return a compact, machine-readable summary block.
 - `issues_touched`: array of issue URLs
 - `prs_touched`: array of PR URLs
 - `ci_status`: `green` | `failing` | `mixed` | `unknown`
+- `review_comments_total`: number (new in v1.3)
 - `review_comments_addressed`: number
+- `review_comments_dispositioned`: number (new in v1.3)
+- `review_comments_applies`: number (new in v1.3)
+- `review_comments_does_not_apply`: number (new in v1.3)
+- `review_threads_resolved`: number (new in v1.3)
 - `model_used`: string (`provider/model`; fallback: `unknown`)
 - `blocker`: string (`none` if not blocked)
 - `next_action`: short sentence
 
-## Per-Comment Review Disposition Metrics
+## Review Comment Disposition Tracking (New in v1.3)
 
-When `review_policy.per_comment_processing.enabled: true`, include these additional fields:
+These fields are always present in output. When `review_policy.require_comment_disposition: false`, set the related metrics to `0`.
 
-- `review_comments_total`: total review comments received on all PRs
-- `review_comments_dispositioned`: count of comments with explicit disposition (applies/does_not_apply)
-- `review_comments_applies`: count with "applies" disposition
-- `review_comments_does_not_apply`: count with "does_not_apply" disposition
-- `review_threads_resolved`: count of threads marked as resolved (when API supports it)
-- `review_undispositioned`: count of comments lacking disposition (should be 0 if `fail_quality_gate_if_undispositioned: true`)
+- **`review_comments_total`**: Total number of review comments/threads on all PRs touched
+- **`review_comments_addressed`**: Comments that received a response (old metric, kept for backward compatibility)
+- **`review_comments_dispositioned`**: Comments with explicit disposition response (`applies` or `does_not_apply`)
+- **`review_comments_applies`**: Count of comments with `applies` disposition
+- **`review_comments_does_not_apply`**: Count of comments with `does_not_apply` disposition
+- **`review_threads_resolved`**: Threads marked resolved via GitHub API (when `resolve_threads_when_possible: true`)
 
-### Quality Gate
-
-If `review_policy.per_comment_processing.fail_quality_gate_if_undispositioned: true` and `review_undispositioned > 0`:
-- Set `status: blocked`
-- Include blocker reason: `"Review comments lack required dispositions: {review_undispositioned} pending"`
-- Do not merge or advance PR until all comments are addressed
-
-### Example Output Block (with per-comment metrics)
-
-```json
-{
-  "instance_id": "tracksmith",
-  "status": "completed",
-  "repos_checked": ["rollerderby-client", "rollerderby-api"],
-  "issues_touched": ["https://github.com/ortegaguillermo/rollerderby-client/issues/42"],
-  "prs_touched": ["https://github.com/ortegaguillermo/rollerderby-client/pull/89"],
-  "ci_status": "green",
-  "review_comments_total": 6,
-  "review_comments_dispositioned": 6,
-  "review_comments_applies": 4,
-  "review_comments_does_not_apply": 2,
-  "review_threads_resolved": 6,
-  "review_undispositioned": 0,
-  "review_comments_addressed": 6,
-  "model_used": "google-antigravity/claude-opus-4-6-thinking",
-  "blocker": "none",
-  "next_action": "PR ready for merge pending final sign-off."
-}
-```
+**Quality Gate:** When `review_policy.require_comment_disposition: true`, the worker fails if `review_comments_dispositioned < review_comments_total`. When `review_policy.require_comment_disposition: false`, this quality gate is disabled.
 
 ## Human Summary (Spanish)
 
@@ -79,6 +56,7 @@ If model identity is unavailable, use:
 
 ```text
 Status: Documentation updates are in progress and PR #123 is open for review.
+All 4 review comments addressed with dispositions: 2 applies, 2 does_not_apply.
 Model used: google-antigravity/claude-opus-4-6-thinking
 ```
 
