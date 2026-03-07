@@ -37,3 +37,15 @@ blocker_policy:
     - credentials_or_permissions
     - subjective_architecture_decision
     - external_dependency_outage
+start_announcement:
+  enabled: true
+  channel: telegram
+  target: "6088001"
+  timezone: America/Chicago
+  include_fields:
+    - issue_number
+    - issue_title
+    - branch
+    - start_time
+  # Optional: use custom template instead of default format
+  # template: "🚀 Iniciando issue #{issue_number}: {issue_title} | rama: {branch} | hora: {start_time}"

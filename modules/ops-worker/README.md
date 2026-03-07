@@ -31,6 +31,51 @@ This separation allows:
 - Instances to be customized without forking the schema.
 - Clear distinction between what's required everywhere vs. what's tuned locally.
 
+## Core Capabilities
+
+### Start Announcement (New in v1.2)
+
+Ops-worker can automatically announce when it starts processing a GitHub issue, providing real-time visibility into task execution.
+
+**Configuration:**
+
+```yaml
+start_announcement:
+  enabled: true
+  channel: telegram
+  target: "6088001"
+  timezone: America/Chicago
+  include_fields:
+    - issue_number
+    - issue_title
+    - branch
+    - start_time
+  # Optional custom template:
+  # template: "🚀 Starting issue #{issue_number}: {issue_title} | branch: {branch}"
+```
+
+**Behavior:**
+
+- Announcement fires immediately after the issue is selected/claimed, **before any code changes**.
+- Included fields are substituted into the template or default message format.
+- If announcement sending fails, a warning is logged but the issue work continues (non-blocking).
+- Duplicate prevention: one announcement per issue per worker run cycle.
+
+**Available placeholders:**
+- `{issue_number}` — GitHub issue number
+- `{issue_title}` — Issue title (first 100 chars by default)
+- `{issue_url}` — Full GitHub issue URL
+- `{branch}` — Branch name that will be created/used
+- `{start_time}` — Current timestamp in configured timezone
+- `{assignee}` — GitHub user assigned to the issue (if any)
+
+**Default format (when template is omitted):**
+```
+🚀 Starting issue #{issue_number}: {issue_title}
+Branch: {branch}
+Time: {start_time}
+```
+
 ## Runtime Rules
 
 1. Treat missing flags as disabled.
@@ -48,3 +93,4 @@ This separation allows:
 Default for all new installs: `false`.
 
 Instance discovery is automatic from `~/.openclaw/workspace/ops-workers/*.yaml` files; **no separate `ops_worker_instances` flag is required**. (Older documentation may reference `ops_worker_instances` as a deprecated approach; the multi-instance workflow auto-discovers instances from YAML files.)
+
