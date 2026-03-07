@@ -93,3 +93,34 @@ fields:
         item:
           type: string
         example: [credentials_or_permissions, subjective_architecture_decision, external_dependency_outage]
+  start_announcement:
+    type: object
+    required: [enabled]
+    fields:
+      enabled:
+        type: boolean
+        description: Enable automatic announcement when ops-worker starts processing an issue
+      channel:
+        type: string
+        enum: [telegram, slack, discord]
+        description: Messaging platform to use for announcement
+        default: telegram
+      target:
+        type: string
+        description: Required when start_announcement.enabled is true. Channel/chat ID or username to send announcement to
+      timezone:
+        type: string
+        description: Timezone for start_time display (defaults to instance timezone if omitted)
+        example: "America/Chicago"
+      include_fields:
+        type: array
+        item:
+          enum: [issue_number, issue_title, issue_url, branch, start_time, assignee]
+        example: [issue_number, issue_title, branch, start_time]
+        description: Fields to include in the announcement message
+      template:
+        type: string
+        description: |
+          Optional custom template for announcement.
+          Available placeholders: {issue_number}, {issue_title}, {issue_url}, {branch}, {start_time}, {assignee}
+          If omitted, uses default format
