@@ -62,6 +62,26 @@ fields:
         type: array
         item:
           enum: [applies, does_not_apply]
+      per_comment_processing:
+        type: object
+        description: "Configuration for per-comment review disposition handling"
+        fields:
+          enabled:
+            type: boolean
+            default: false
+            description: "Enable individual processing and disposition for each review comment"
+          resolve_threads_when_possible:
+            type: boolean
+            default: true
+            description: "Attempt to mark review threads as resolved after addressing comments"
+          require_resolution_details_on_applies:
+            type: boolean
+            default: true
+            description: "When disposition is 'applies', require detailed resolution (files, change summary, commit SHA)"
+          fail_quality_gate_if_undispositioned:
+            type: boolean
+            default: true
+            description: "Fail PR quality check if any review comment lacks explicit disposition"
   alert_policy:
     type: object
     required: [routine_updates, notify_on_blocker]

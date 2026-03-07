@@ -19,6 +19,11 @@ branch_policy:
 review_policy:
   require_comment_disposition: true
   accepted_dispositions: [applies, does_not_apply]
+  per_comment_processing:
+    enabled: true
+    resolve_threads_when_possible: true
+    require_resolution_details_on_applies: true
+    fail_quality_gate_if_undispositioned: true
 alert_policy:
   routine_updates: never
   notify_on_blocker: always
