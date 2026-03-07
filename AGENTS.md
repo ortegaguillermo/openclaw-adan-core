@@ -1,7 +1,7 @@
 # AGENTS.md — Authorship & Governance Guide
 
 > **Not for distribution.** This file is for Adan Core maintainers and contributors.
-> It is intentionally excluded from package installations and NPM/PyPI distributions.
+> It is intentionally excluded from package installations and NPM distributions.
 > See [SKILL.md](./SKILL.md) for what is actually distributed.
 
 ## Purpose
@@ -52,7 +52,7 @@ When a user follows that documented flow, they receive:
 
 Before releasing Adan Core:
 
-1. ✅ Verify `AGENTS.md` is in `.npmignore` or has explicit exclusion rule.
+1. ✅ Add an exclusion entry (and comment) in `.npmignore` or the release/packaging config explaining why.
 2. ✅ Confirm `SKILL.md` explicitly lists excluded files.
 3. ✅ Check CI/build logs that `AGENTS.md` was not packaged.
 4. ✅ Document in CONTRIBUTING.md that AGENTS.md is repo-only.
