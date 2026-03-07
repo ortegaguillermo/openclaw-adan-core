@@ -10,7 +10,6 @@ required:
   - alert_policy
   - scope_policy
   - blocker_policy
-  - start_announcement
 fields:
   instance_id:
     type: string
@@ -108,7 +107,7 @@ fields:
         default: telegram
       target:
         type: string
-        description: Channel/chat ID or username to send announcement to
+        description: Required when start_announcement.enabled is true. Channel/chat ID or username to send announcement to
       timezone:
         type: string
         description: Timezone for start_time display (defaults to instance timezone if omitted)

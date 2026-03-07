@@ -40,7 +40,7 @@ blocker_policy:
 start_announcement:
   enabled: true
   channel: telegram
-  target: "6088001"
+  target: "<TELEGRAM_CHAT_ID>"  # Replace with your actual Telegram chat or channel ID
   timezone: America/Chicago
   include_fields:
     - issue_number

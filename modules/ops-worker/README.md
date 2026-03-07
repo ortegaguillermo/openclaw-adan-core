@@ -43,7 +43,7 @@ Ops-worker can automatically announce when it starts processing a GitHub issue, 
 start_announcement:
   enabled: true
   channel: telegram
-  target: "6088001"
+  target: "<TELEGRAM_CHAT_ID>"  # Replace with your Telegram chat or channel ID before enabling announcements
   timezone: America/Chicago
   include_fields:
     - issue_number
