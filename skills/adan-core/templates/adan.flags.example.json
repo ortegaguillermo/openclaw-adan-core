@@ -4,10 +4,19 @@
     "autofix_ci": false,
     "auto_pr_comments": false,
     "nightly_roadmap_interview": true,
-    "quota_auto_rebalance": false,
+    "quota_auto_rebalance": true,
     "aggressive_worker_autoapprove": false,
     "meta_skill_synthesizer": false,
     "weekly_refinery": false,
-    "ops_worker_mode": false
+    "ops_worker_mode": true
+  },
+  "autonomyPolicy": {
+    "enabled": true,
+    "requireOwnerApprovedComment": true,
+    "ownerApprovedToken": "approved",
+    "allowAutoclosePR": false,
+    "allowAutomergePR": false,
+    "allowAutotagRelease": false,
+    "logBlockedActions": true
   }
 }
